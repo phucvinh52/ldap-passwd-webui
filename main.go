@@ -17,5 +17,5 @@ func main() {
 	http.Handle("/captcha/", captcha.Server(captcha.StdWidth, captcha.StdHeight))
 	http.Handle("/", reHandler)
 	fmt.Println("Starting server on port 8443")
-	http.ListenAndServe(":8443", nil)
+	http.ListenAndServeTLS(":8443", "/myapp/server.crt", "/myapp/server.key", nil)
 }
